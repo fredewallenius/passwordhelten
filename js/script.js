@@ -144,16 +144,11 @@ const checkAnswer = (e) => {
             const heading = scene.querySelector('h2');
             const text = scene.querySelector('p');
             if (heading) heading.innerText = data.title;
+            let tekst = data.text;
             
             //Tjekker om svaret er korrekt
             const isCorrect = e.target.classList.contains('korrekt');
             const isWrong = e.target.classList.contains('forkert1') || e.target.classList.contains('forkert2');
-            saveUserChoice(e.target.id, isCorrect);
-
-            //Gør kun noget hvis det er et spørgsmål (for at udelukke knappen til scene7)
-            if (data.text) saveUserChoice(e.target.id, isCorrect);
-
-            let tekst = data.text;
 
             //Feedback baseret på antal fejl
             if (isWrong) {
@@ -177,7 +172,7 @@ const checkAnswer = (e) => {
                         break;
                 }  
                 }
-                if (text) text.innerText = tekst;  
+                text.innerText = tekst;  
             }
     };
 
