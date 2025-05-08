@@ -138,42 +138,51 @@ const checkAnswer = (e) => {
     const data = scenesData[e.target.id];
     if (data) {
         const scene = document.querySelector(`#${data.sceneId}`);
-        if (!scene) return;
-            scene.style.display = 'flex';
+        if (scene === 's1') {
+            const nu = new Date();
+            localStorage.setItem('startTid', nu);
+        }
+/*         if (scene === 's7') {
+            const nu = new Date();
+            const da = localStorage.getItem('startTid');
+            const paragraf = scene.getElementById('slutTid');
+            paragraf.innerText = 'hurra';
+        } */
+        scene.style.display = 'flex';
 
-            const heading = scene.querySelector('h2');
-            const text = scene.querySelector('p');
-            if (heading) heading.innerText = data.title;
-            let tekst = data.text;
-            
-            //Tjekker om svaret er korrekt
-            const isCorrect = e.target.classList.contains('korrekt');
-            const isWrong = e.target.classList.contains('forkert1') || e.target.classList.contains('forkert2');
+        const heading = scene.querySelector('h2');
+        const text = scene.querySelector('p');
+        if (heading) heading.innerText = data.title;
+        let tekst = data.text;
+        
+        //Tjekker om svaret er korrekt
+        const isCorrect = e.target.classList.contains('korrekt');
+        const isWrong = e.target.classList.contains('forkert1') || e.target.classList.contains('forkert2');
 
-            //Feedback baseret på antal fejl
-            if (isWrong) {
-                errorCount++;
-            
-                switch (errorCount) {
-                    case 1:
-                        tekst = 'Okay første fejl - du har den fra nu af! ' + tekst;
-                        break;
-                    case 2:
-                        tekst = 'Du har nu lavet 2 fejl - prøv lidt hårdere! ' + tekst;
-                        break;
-                    case 3:
-                        tekst = '3. fejl - lad dem blive de sidste! Er du sikker at du har læst spørgsmålene OG svarene nøje? ' + tekst;
-                        break;
-                    case 4:
-                        tekst = 'Du er lidt på et skråplan mht. fejl - gør dig umage med denne her! ' + tekst;
-                        break;
-                    case 5:
-                        tekst = 'Du har fået for mange fejl by now - hvis du har mod på det, så prøv igen helt forfra! Vi tager lige en sidste - du får hep din retning! ' + tekst;
-                        break;
-                }  
-                }
-                text.innerText = tekst;  
+        //Feedback baseret på antal fejl
+        if (isWrong) {
+            errorCount++;
+        
+            switch (errorCount) {
+                case 1:
+                    tekst = 'Okay første fejl - du har den fra nu af! ' + tekst;
+                    break;
+                case 2:
+                    tekst = 'Du har nu lavet 2 fejl - prøv lidt hårdere! ' + tekst;
+                    break;
+                case 3:
+                    tekst = '3. fejl - lad dem blive de sidste! Er du sikker at du har læst spørgsmålene OG svarene nøje? ' + tekst;
+                    break;
+                case 4:
+                    tekst = 'Du er lidt på et skråplan mht. fejl - gør dig umage med denne her! ' + tekst;
+                    break;
+                case 5:
+                    tekst = 'Du har fået for mange fejl by now - hvis du har mod på det, så prøv igen helt forfra! Vi tager lige en sidste - du får hep din retning! ' + tekst;
+                    break;
+            }  
             }
+            text.innerText = tekst;  
+        }
     };
 
 // Tilføj eventListeners til knapper
@@ -188,36 +197,3 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#s1').style.display = 'flex';
     }
 );
-
-
-/*
-//Afslutning, opsummering af svar
-function visValgOversigt() {
-    scenes.forEach(scene => scene.style.display = 'none');
-    const summaryScene = document.querySelector('#s7');
-    summaryScene.style.display = 'flex';
-
-    const summaryList = document.getElementById('answer-summary');
-
-    const brugerensValg = JSON.parse(localStorage.getItem('brugerensValg')) || [];
-
-    
-    if (brugerensValg.length === 0) {
-        summaryList.innerHTML = '<li>Du har ikke foretaget nogen valg endnu.</li>';
-    } else {
-        let totalKorrekt = 0;
-        brugerensValg.forEach((valg, index) => {
-            const listItem = document.createElement('li');
-            listItem.textContent = `Spørgsmål ${index + 1}: Du valgte "${valg.svar}" → ${valg.korrekt ? '✔️ Rigtigt' : '❌ Forkert'}`;
-            summaryList.appendChild(listItem);
-
-            if (valg.korrekt) totalKorrekt++;
-        });
-            
-        const totalKorrektItem = document.createElement('li');
-        totalKorrektItem.textContent = `Du fik ${totalKorrekt} ud af ${brugerensValg.length} rigtige!`;
-        summaryList.appendChild(totalKorrektItem);
-    }
-}
-
-*/
