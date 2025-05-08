@@ -117,6 +117,7 @@ const scenesData = {
     'tilScene7': {
         sceneId: 's7',
         title: 'Tak for din deltagelse!',
+        text: ''
     }
 };
 
@@ -138,58 +139,72 @@ const checkAnswer = (e) => {
     const data = scenesData[e.target.id];
     if (data) {
         const scene = document.querySelector(`#${data.sceneId}`);
-        if (scene === 's1') {
+            scene.style.display = 'flex';
+
+        //Starter tid når man rammer scene 2
+        if (e.target.id === 'tilScene2') {
             const nu = new Date();
             localStorage.setItem('startTid', nu);
         }
-/*         if (scene === 's7') {
+        //Slutter tid når man rammer scene 7
+        if (e.target.id === 'tilScene7') {
             const nu = new Date();
-            const da = localStorage.getItem('startTid');
-            const paragraf = scene.getElementById('slutTid');
-            paragraf.innerText = 'hurra';
-        } */
-        scene.style.display = 'flex';
-
-        const heading = scene.querySelector('h2');
-        const text = scene.querySelector('p');
-        if (heading) heading.innerText = data.title;
-        let tekst = data.text;
+            const da = new Date(localStorage.getItem('startTid'));
+            let tid = 'tiden kunne ikke beregnes';
+            //if (!isNaN(da)) {
+                const forskelMs = nu - da;
+                const sekunder = Math.floor((forskelMs / 1000) % 60);
+                const minutter = Math.floor((forskelMs / (1000 * 60)) % 60);
+                const timer = Math.floor((forskelMs / (1000 * 60 * 60)) % 24);
+                tid = `${timer.toString().padStart(2, '0')}:${minutter.toString().padStart(2, '0')}:${sekunder.toString().padStart(2, '0')}`;
+            //}
+            const paragraf = document.getElementById('slutTid');
+            paragraf.textContent = `din tid: ${tid}`;
+            paragraf.style.display = 'block';
         
-        //Tjekker om svaret er korrekt
-        const isCorrect = e.target.classList.contains('korrekt');
-        const isWrong = e.target.classList.contains('forkert1') || e.target.classList.contains('forkert2');
-
-        //Feedback baseret på antal fejl
-        if (isWrong) {
-            errorCount++;
+        } else {
+                //Håndterer andre scener
+                const heading = scene.querySelector('h2');
+                const text = scene.querySelector('p');
+                if (heading) heading.innerText = data.title;
+                let tekst = data.text;
+                
+                //Tjekker om svaret er korrekt
+                 const isCorrect = e.target.classList.contains('korrekt');
+                 const isWrong = e.target.classList.contains('forkert1') || e.target.classList.contains('forkert2');
         
-            switch (errorCount) {
-                case 1:
-                    tekst = 'Okay første fejl - du har den fra nu af! ' + tekst;
-                    break;
-                case 2:
-                    tekst = 'Du har nu lavet 2 fejl - prøv lidt hårdere! ' + tekst;
-                    break;
-                case 3:
-                    tekst = '3. fejl - lad dem blive de sidste! Er du sikker at du har læst spørgsmålene OG svarene nøje? ' + tekst;
-                    break;
-                case 4:
-                    tekst = 'Du er lidt på et skråplan mht. fejl - gør dig umage med denne her! ' + tekst;
-                    break;
-                case 5:
-                    tekst = 'Du har fået for mange fejl by now - hvis du har mod på det, så prøv igen helt forfra! Vi tager lige en sidste - du får hep din retning! ' + tekst;
-                    break;
-            }  
-            }
-            text.innerText = tekst;  
+        
+
+                //Feedback baseret på antal fejl
+                if (isWrong) {
+                    errorCount++;
+                
+                    switch (errorCount) {
+                        case 1:
+                            tekst = 'Okay første fejl - du har den fra nu af! ' + tekst;
+                            break;
+                        case 2:
+                            tekst = 'Du har nu lavet 2 fejl - prøv lidt hårdere! ' + tekst;
+                            break;
+                        case 3:
+                            tekst = '3. fejl - lad dem blive de sidste! Er du sikker at du har læst spørgsmålene OG svarene nøje? ' + tekst;
+                            break;
+                        case 4:
+                            tekst = 'Du er lidt på et skråplan mht. fejl - gør dig umage med denne her! ' + tekst;
+                            break;
+                        case 5:
+                            tekst = 'Du har fået for mange fejl by now - hvis du har mod på det, så prøv igen helt forfra! Vi tager lige en sidste - du får hep din retning! ' + tekst;
+                            break;
+                        }  
+                    }
+                    text.innerText = tekst;  
+                }
+                
         }
     };
 
 // Tilføj eventListeners til knapper
 btns.forEach(btn => btn.addEventListener('click', checkAnswer));
-document.getElementById('tilScene7').addEventListener('click', () => {
-    visValgOversigt();
-})
 
 // Vis scene 1 som det første
 document.addEventListener('DOMContentLoaded', () => {

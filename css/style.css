@@ -60,11 +60,9 @@ button:hover {
   margin-top: 1rem;
 }
 
-.opsummering {
-  list-style-type: none;
-  padding: 0;
-  font-size: 24px;
-  color: black;
+.slut {
+  display: flex;
+  flex-direction: row;
 }
 
 @media (max-width: 480px) {
