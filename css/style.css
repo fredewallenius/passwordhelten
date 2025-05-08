@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background: linear-gradient(to bottom, #DAE6FF, #747474);
+  font-family: "Jersey 25", sans-serif;
+}
+
+.scene {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.scene > div {
+  max-width: 350px;
+  width: 100%;
+}
+
+.overskrifter, .brodtekst, button {
+  font-family: "Jersey 25", sans-serif;
+  font-size: 40px;
+  background-color: #D9D9D9;
+  border-radius: 15px;
+  width: 90%;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+.brodtekst {
+  font-size: 24px;
+}
+
+button {
+  border: none;
+  background-color: #0055FF;
+  color: #D9D9D9;
+  font-size: 24px;
+}
+
+button:hover {
+  background-color: #D9D9D9;
+  color: black;
+}
+
+.img {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  margin-top: 1rem;
+}
+
+.opsummering {
+  list-style-type: none;
+  padding: 0;
+  font-size: 24px;
+  color: black;
+}
+
+@media (max-width: 480px) {
+  .overskrifter, .brodtekst, button {
+    padding: 15px;
+    margin: 20px;
+  }
+  .overskrifter {
+    font-size: 40px;
+  }
+  .brodtekst, button {
+    font-size: 24px;
+  }
+  .img {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */

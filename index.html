@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password-helten!</title>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+</head>
+    <body>
+        <!-- Scene 1: Intro -->
+        <div id="s1" class="scene">
+            <div>
+                <h2 class="overskrifter">Velkommen til Password-helten!</h2>
+                <p class="brodtekst">Verden er under digitalt angreb! Hackere forsøger at knække adgangskoder overalt - men der er håb. Du er blevet udvalgt som den næste Password-helt. Er du klar til at lære, hvordan man beskytter sig online og slår hackerne?</p>
+                <button id="tilScene2">Jeg er klar!</button>
+            </div>
+            <img class="img" src="img/velkommen.png" alt="Kvinde der byder velkommen">
+        </div>
+
+        <!-- Scene 2: Svage passwords -->
+        <div id="s2" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="rigtigPw" class="korrekt, knap1">123456</button>
+                <button id="forkertPw1" class="forkert1, knap2">Kaffe!2023</button>
+                <button id="forkertPw2" class="forkert2, knap3">8!ErjFh@Qm</button>
+            </div>
+            <img class="img" src="img/thinking.png" alt="Kvinde der tænker">  
+        </div>
+
+        <!--Scene 2 valgmuligheder-->
+        <div id="s2a" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene3">Næste</button>
+            </div>
+                <img class="img" src="img/tommelop.png" alt="Kvinde der laver tommel op">
+        </div>
+        <div id="s2b" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene3">Næste</button>
+            </div>
+                <img class="img" src="img/pegefinger.PNG" alt="Kvinde der har pegefingeren oppe">
+        </div>
+        <div id="s2c" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene3">Næste</button>
+            </div>
+                <img class="img" src="img/tommelned.png" alt="Kvinde der laver tommel ned">
+        </div>
+
+        <!-- Scene 3: Genbrug af passwords -->
+        <div id="s3" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="forkertGen1" class="forkert1">Det er nemmere at huske.</button>        
+                <button id="rigtigGen" class="korrekt">En hacker kan få adgang til flere konti, hvis blot ét password lækkes.</button>
+                <button id="forkertGen2" class="forkert2">Det beskytter dine data bedre.</button>
+            </div>
+            <img class="img" src="img/thinking.png" alt="Kvinde der tænker">
+        </div>
+
+        <!-- Scene 3 valgmuligheder-->
+        <div id="s3a" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene4">Næste</button>
+            </div>
+            <img class="img" src="img/pegefinger.PNG" alt="Kvinde der har pegefingeren oppe">
+        </div>
+        <div id="s3b" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene4">Næste</button>
+            </div>
+            <img class="img" src="img/tommelop.png" alt="Kvinde der laver tommel op">
+        </div>
+        <div id="s3c" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene4">Næste</button>
+            </div>
+            <img class="img" src="img/tommelned.png" alt="Kvinde laver tommel ned">
+        </div>
+
+        <!-- Scene 4: to-faktor-godkendelse -->
+        <div id="s4" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="forkertToFa1" class="forkert2">Den sender dig reklamer.</button>
+                <button id="rigtigToFa" class="korrekt">Den kræver noget, du ved, og noget du har.</button>
+                <button id="forkertToFa2" class="forkert1">Den gør det muligt at bruge enklere passwords.</button>
+            </div>
+            <img class="img" src="img/thinking.png" alt="Kvinde der tænker">
+        </div>
+
+        <!--Scene 4 valgmuligheder-->
+        <div id="s4a" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene5">Næste</button>
+            </div>
+            <img class="img" src="img/tommelned.png" alt="Kvinde der laver tommel ned">
+        </div>
+        <div id="s4b" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene5">Næste</button>
+            </div>
+            <img class="img" src="img/tommelop.png" alt="Kvinde der laver tommel op">
+        </div>
+        <div id="s4c" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene5">Næste</button>
+            </div>
+            <img class="img" src="img/pegefinger.PNG" alt="Kvinde der har pegefingeren oppe">
+        </div>
+
+        <!-- Scene 5: Gemte passwords i browseren -->
+        <div id="s5" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="forkertBrowser1" class="forkert1">Det er sikkert og lige så godt som en passwordmanager.</button>
+                <button id="rigtigBrowser" class="korrekt">Det er bedre at bruge en dedikeret passwordmanager med stærk kryptering.</button>
+                <button id="forkertBrowser2" class="forkert2">Det er en dårlig ide at gemme passwords nogle steder.</button>
+            </div>
+            <img class="img" src="img/thinking.png" alt="Kvinde der tænker">
+        </div>
+
+        <!--Scene 5 valgmuligheder-->
+        <div id="s5a" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene6">Næste</button>
+            </div>
+            <img class="img" src="img/pegefinger.PNG" alt="Kvinde der har pegefingeren oppe">
+        </div>
+        <div id="s5b" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene6">Næste</button>
+            </div>
+            <img class="img" src="img/tommelop.png" alt="Kvinde der laver tommel op">
+        </div>
+        <div id="s5c" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene6">Næste</button>
+            </div>
+            <img class="img" src="img/tommelned.png" alt="Kvinde der laver tommel ned">
+        </div>
+
+        <!-- Scene 6: Brug af passwordmanager -->
+        <div id="s6" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="forkertPwMa1" class="forkert2">Så jeg kan bruge det samme password overalt.</button>
+                <button id="rigtigPwMa" class="korrekt">Den gemmer og skaber stærke passwords for mig.</button>
+                <button id="forkertPwMa2" class="forkert1">Den sender nemt mine passwords til mine venner, hvis jeg glemmer dem.</button>
+            </div>
+            <img class="img" src="img/thinking.png" alt="Kvinde der tænker">
+        </div>
+
+        <!--Scene 6 valgmuligheder-->
+        <div id="s6a" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene7">Næste</button>
+            </div>
+            <img class="img" src="img/tommelned.png" alt="Kvinde der laver tommel ned">
+        </div>
+        <div id="s6b" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene7">Næste</button>
+            </div>
+            <img class="img" src="img/tommelop.png" alt="Kvinde der laver tommel op">
+        </div>
+        <div id="s6c" class="scene">
+            <div>
+                <h2 class="overskrifter"></h2>
+                <p class="brodtekst"></p>
+                <button id="tilScene7">Næste</button>
+            </div>
+            <img class="img" src="img/tommelned.png" alt="Kvinde der laver tommel ned">
+        </div>
+
+        <!--Afslutning-->
+        <div id="s7" class="scene">
+            <h2>Dine valg</h2>
+            <ul id="answer-summary" class="opsummering"></ul>
+        </div>
+    </body>
+</html>

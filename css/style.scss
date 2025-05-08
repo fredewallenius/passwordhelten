@@ -1,0 +1,107 @@
+//Farver og typografi
+$bg-gradient: linear-gradient(to bottom, #DAE6FF, #747474);
+$box-bg: #D9D9D9;
+$box-text-color: black;
+$action-btn-bg: #0055FF;
+$font-jersey: "Jersey 25", sans-serif;
+
+$box-font-size-primary: 40px;
+$box-font-size-secondary: 24px;
+$box-font-size-tertriary: 12px;
+
+//Layout og dimensioner
+$box-radius: 15px;
+$box-padding: 20px;
+$box-margin: 20px;
+$box-width: 90%;
+$box-max-width: 350px;
+
+//Billeder
+$img-height: 100%;
+$img-max-width: 400px;
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    background: $bg-gradient;
+    font-family: $font-jersey;
+}
+
+.scene {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.scene > div {
+    max-width: $box-max-width;
+    width: 100%;
+  }
+
+.overskrifter, .brodtekst, button {
+    font-family: $font-jersey;
+    font-size: $box-font-size-primary;
+    background-color: $box-bg;
+    border-radius: $box-radius;
+    width: $box-width;
+    padding: $box-padding;
+    margin: $box-margin auto;
+}
+
+.brodtekst {
+    font-size: $box-font-size-secondary;
+}
+
+button {
+    border: none;
+    background-color: $action-btn-bg;
+    color: $box-bg;
+    font-size: $box-font-size-secondary;
+}
+
+button:hover {
+    background-color: $box-bg;
+    color: black;
+}
+
+.img {
+    width: 100%;
+    max-width: $img-max-width;
+    height: $img-height;
+    margin-top: 1rem;
+}
+
+.opsummering {
+    list-style-type: none;
+    padding: 0;
+    font-size: $box-font-size-secondary;
+    color: black;
+}
+
+@media (max-width: 480px) {
+    .overskrifter, .brodtekst, button {
+        padding: 15px;
+        margin: $box-margin;
+    }
+    .overskrifter {
+        font-size: $box-font-size-primary;
+    }
+    .brodtekst, button {
+        font-size: $box-font-size-secondary;
+    }
+
+    .img {
+        display: none;
+    }
+}
